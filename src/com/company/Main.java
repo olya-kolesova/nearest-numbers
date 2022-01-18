@@ -27,17 +27,23 @@ public class Main {
                 result.add(inputList.get(i));
             }
         }
-
+        int count = 0;
         int max = 0;
-        for (int i = 0; i < inputList.size(); i++) {
-            if (inputList.get(i) > max) {
-                result.add(inputList.get(i));
-                max = inputList.get(i);
+        for (int i = 0; i < result.size(); i++) {
+            if (result.get(i) >= max) {
+                result.add(result.get(i));
+                max = result.get(i);
                 result.remove(i);
+                i -= 1;
+                count += 1;
+            }
+            if (count > result.size() / 2) {
+                break;
             }
         }
-        for ( Integer value : result) {
-            System.out.print(value);
+        for (int i = 0; i < result.size() - 1; i++) {
+            System.out.print(result.get(i) + " ");
         }
+        System.out.print(result.get(result.size() - 1));
     }
 }
